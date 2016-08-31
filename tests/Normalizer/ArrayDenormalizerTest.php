@@ -55,11 +55,11 @@ class ArrayDenormalizerTest extends \PHPUnit_Framework_TestCase
 
         $this->assertInternalType('array', $denormalizedData);
         $this->assertCount(5, $denormalizedData);
-        $this->assertInstanceOf(Foo::class, $denormalizedData[0]);
-        $this->assertInstanceOf(Foo::class, $denormalizedData[1]);
-        $this->assertInstanceOf(Foo::class, $denormalizedData[2]);
-        $this->assertInstanceOf(Foo::class, $denormalizedData[3]);
-        $this->assertInstanceOf(Foo::class, $denormalizedData[4]);
+        $this->assertInstanceOf('Joli\Jane\Runtime\Tests\Normalizer\Foo', $denormalizedData[0]);
+        $this->assertInstanceOf('Joli\Jane\Runtime\Tests\Normalizer\Foo', $denormalizedData[1]);
+        $this->assertInstanceOf('Joli\Jane\Runtime\Tests\Normalizer\Foo', $denormalizedData[2]);
+        $this->assertInstanceOf('Joli\Jane\Runtime\Tests\Normalizer\Foo', $denormalizedData[3]);
+        $this->assertInstanceOf('Joli\Jane\Runtime\Tests\Normalizer\Foo', $denormalizedData[4]);
     }
 }
 
