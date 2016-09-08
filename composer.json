@@ -7,6 +7,10 @@
         {
             "name": "Joel Wurtz",
             "email": "jwurtz@jolicode.com"
+        },
+        {
+            "name": "JoliCode",
+            "email": "coucou@jolicode.com"
         }
     ],
     "require": {
