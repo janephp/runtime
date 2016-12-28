@@ -19,7 +19,7 @@ class ReferenceTest extends \PHPUnit_Framework_TestCase
     public function resolveProvider()
     {
         return [
-            ['#', __DIR__ . '/schema.json', json_decode(file_get_contents(__DIR__ . '/schema.json')), 'json_decode'],
+            ['#', __DIR__ . '/schema.json', json_decode(file_get_contents(__DIR__ . '/schema.json')), null],
             [
                 'https://raw.githubusercontent.com/json-schema/json-schema/master/draft-04/schema#/id',
                 __DIR__ . '/schema.json',
