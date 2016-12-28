@@ -2,6 +2,7 @@
 
 namespace Joli\Jane\Runtime;
 
+use League\Uri\Formatter;
 use League\Uri\Schemes\Generic\AbstractUri;
 use League\Uri\Schemes\Http;
 use League\Uri\UriParser;
@@ -69,10 +70,29 @@ class Reference
      */
     protected function doResolve()
     {
-        $json = file_get_contents($this->uri->withFragment(''));
+        $json = file_get_contents($this->getUri());
         $pointer = new Pointer($json);
 
+        if ($this->uri->getFragment() === '') {
+            return json_decode($json);
+        }
+
         return $pointer->get($this->uri->getFragment());
+    }
+
+    /**
+     * @return string
+     */
+    public function getUri($withFragment = false)
+    {
+        if ($withFragment) {
+            $formatter = new Formatter();
+            $formatter->preserveFragment(true);
+
+            return $formatter->format($this->uri);
+        }
+
+        return (string) $this->uri->withFragment('');
     }
 
     /**
