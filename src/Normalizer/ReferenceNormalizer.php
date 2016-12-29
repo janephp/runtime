@@ -13,7 +13,7 @@ class ReferenceNormalizer implements NormalizerInterface
     public function normalize($object, $format = null, array $context = array())
     {
         $ref = new \stdClass();
-        $ref->{'$ref'} = $object->getReference();
+        $ref->{'$ref'} = (string) $object->getReferenceUri();
 
         return $ref;
     }
