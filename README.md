@@ -10,9 +10,9 @@
 
 Jane Runtime are a collection of class used by a library generated via Jane
 
-## Sponsor
+## Sponsor
 
-[![Jolicode](https://jolicode.com/bundles/jolisite/images/logo.svg?19)](https://jolicode.com)
+[![JoliCode](https://jolicode.com/images/logo.svg)](https://jolicode.com)
 
 Open Source time sponsored by JoliCode
 
