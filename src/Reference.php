@@ -7,6 +7,7 @@ use League\Uri\Schemes\Generic\AbstractUri;
 use League\Uri\Schemes\Http;
 use League\Uri\UriParser;
 use Rs\Json\Pointer;
+use Symfony\Component\Yaml\Yaml;
 
 /**
  * Deal with a Json Reference
@@ -83,6 +84,12 @@ class Reference
     {
         // @TODO Better handling of getting the content of a file
         $json = file_get_contents((string) $this->mergedUri->withFragment(''));
+
+        if (!json_decode($json) || json_last_error() !== JSON_ERROR_NONE) {
+            $decoded = Yaml::parse($json, Yaml::PARSE_OBJECT | Yaml::PARSE_OBJECT_FOR_MAP | Yaml::PARSE_DATETIME | Yaml::PARSE_EXCEPTION_ON_INVALID_TYPE);
+            $json = json_encode($decoded);
+        }
+
         $pointer = new Pointer($json);
 
         if ($this->mergedUri->getFragment() === '') {
